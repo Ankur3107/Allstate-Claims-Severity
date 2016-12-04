@@ -1,7 +1,4 @@
-# For all those R users that want a competitive starter
-# a shameless port of Faron's super python script to R
-# https://www.kaggle.com/mmueller/allstate-claims-severity/yet-another-xgb-starter/code
-# scores 1128 on public leaderboard but produced 1126 on my local run
+
 
 library(data.table)
 library(Matrix)
@@ -86,4 +83,3 @@ submission = fread(SUBMISSION_FILE, colClasses = c("integer", "numeric"))
 submission$loss = exp(predict(gbdt,dtest))
 write.csv(submission,'xgb_starter_v2.sub.csv',row.names = FALSE)
 
-#1126.19439 on PLB
