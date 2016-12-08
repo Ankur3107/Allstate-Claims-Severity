@@ -107,7 +107,7 @@ xg_eval_mae <- function (yhat, dtrain) {
 #cat(paste0('CV-Mean: ',cv_mean,' ', cv_std))
 
 # established best _nrounds with eta=0.05 from a local cv run 
-best_nrounds = 545 # comment this out when doing local 1113 run
+best_nrounds = 600 # comment this out when doing local 1113 run
 
 gbdt = xgb.train(xgb_params, dtrain, nrounds=as.integer(best_nrounds/0.8))
 
