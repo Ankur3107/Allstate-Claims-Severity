@@ -9,9 +9,9 @@ TARGET = 'loss'
 SEED = 0
 SHIFT = 200
 
-TRAIN_FILE = "../input/train.csv"
-TEST_FILE = "../input/test.csv"
-SUBMISSION_FILE = "../input/sample_submission.csv"
+TRAIN_FILE = "train.csv"
+TEST_FILE = "test.csv"
+SUBMISSION_FILE = "sample_submission.csv"
 
 
 train = fread(TRAIN_FILE, showProgress = TRUE)
@@ -34,6 +34,17 @@ for (f in features) {
     train_test[[f]] <- as.integer(factor(train_test[[f]], levels=levels))
   }
 }
+
+for (f in features) {
+  if (class(train_test[[f]])=="numeric") {
+    
+    train_test[[f]] <- sin(train_test[[f]])+cos(train_test[[f]])
+  }
+}
+
+
+
+
 
 # in order to speed up fit within Kaggle scripts have removed 30
 # least important factors as identified from local run
