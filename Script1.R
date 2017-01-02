@@ -81,5 +81,5 @@ gbdt = xgb.train(xgb_params, dtrain, best_nrounds)
 
 submission = fread(SUBMISSION_FILE, colClasses = c("integer", "numeric"))
 submission$loss = exp(predict(gbdt,dtest))
-write.csv(submission,'xgb_starter_v2.sub.csv',row.names = FALSE)
+write.csv(submission,'xgb1.csv',row.names = FALSE)
 
